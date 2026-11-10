@@ -7,9 +7,9 @@ Kelompok 8:
 
 Aplikasi Online Shop Berbasis Konsol
 Jadi aplikasi ini mensimulasikan bagaimana cara E-Commerce bekerja.
-Mensimulasikan bagaimana kita menggunakan aplikasi online shop yang real seperti shopee, tokopedia, dll
+Mensimulasikan bagaimana kita menggunakan aplikasi online shop yang real seperti shopee, tokopedia, dll tetapi berbasis konsol.
 
-Fitur yang ada pada aplikasi ini adalah;
+Fitur yang ada dan akan kami buat pada aplikasi ini adalah;
 - User Management
 - Product Catalog
 - Shopping Cart
