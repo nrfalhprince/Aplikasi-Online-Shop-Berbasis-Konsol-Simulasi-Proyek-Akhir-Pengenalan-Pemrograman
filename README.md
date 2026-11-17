@@ -13,7 +13,6 @@ Aplikasi-Online-Shop-Berbasis-Konsol-Simulasi-Proyek-Akhir-Pengenalan-Pemrograma
 │
 ├── include/                  # Berisi file header (.h) untuk deklarasi struct dan fungsi
 │   ├── models.h
-│   ├── database.h
 │   ├── userManagement.h
 │   ├── productCatalog.h
 │   ├── shoppingCart.h
@@ -24,7 +23,6 @@ Aplikasi-Online-Shop-Berbasis-Konsol-Simulasi-Proyek-Akhir-Pengenalan-Pemrograma
 │
 ├── src/                      # Berisi implementasi kode sumber (.c)
 │   ├── main.c
-│   ├── database.c
 │   ├── userManagement.c
 │   ├── productCatalog.c
 │   ├── shoppingCart.c
