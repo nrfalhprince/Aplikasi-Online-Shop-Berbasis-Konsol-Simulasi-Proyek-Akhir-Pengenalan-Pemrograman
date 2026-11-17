@@ -1,8 +1,8 @@
 Aplikasi Online Shop Berbasis Konsol
 ------------------------------------
-Aplikasi ini merupakan sebuah proyek untuk memenuhi tugas akhir Pengenalan Pemrograman. Aplikasi Online Shop Berbasis konsol ini mensimulasikan bagaimana cara apklikasi online shop yang nyata seperti Shoppe, Tokopedia, Lazada, dll bekerja.
+Aplikasi Online Shop Berbasis Konsol merupakan sebuah perangkat lunak simulasi perdagangan elektronik (e-commerce) yang dibangun menggunakan bahasa pemrograman C dan dijalankan melalui antarmuka baris perintah (Command Line Interface / CLI). Aplikasi ini dikembangkan sebagai proyek tugas akhir mata kuliah Pengenalan Pemrograman oleh Kelompok 8.
+Secara konseptual, aplikasi ini dirancang untuk meniru alur kerja dan logika bisnis platform belanja daring modern seperti Shopee, Tokopedia, dan Lazada, namun dikemas dalam lingkungan konsol yang ringan dan terstruktur. Melalui aplikasi ini, seluruh proses transaksi jual beli—mulai dari pengelolaan akun, penjelajahan katalog produk, manajemen keranjang belanja, perhitungan biaya akhir, simulasi pembayaran, hingga pemantauan status pengiriman—dapat disimulasikan secara menyeluruh dan saling terintegrasi.
 ```
-
 Anggota kelompok 8:
 - Fazly Mawla Athaya Arifianto (26071103379)
 - Muhammad Nur Falah (26071102353)
