@@ -67,13 +67,13 @@ Fitur Aplikasi
 ---
 Penjelasan Modul (fitur)
 
-"main.c"| Titik awal program dan pengatur navigasi menu aplikasi.
-"models.h"| Menyimpan definisi struktur data yang digunakan bersama oleh berbagai modul.
-"userManagement"| Mengelola registrasi, login, dan profil pengguna.
-"adminDashboard"| Menyediakan fitur pengelolaan khusus administrator.
-"productCatalog"| Mengelola katalog dan inventaris produk.
-"shoppingCart"| Mengelola keranjang belanja pelanggan.
-"checkout"| Menangani validasi pesanan dan perhitungan pembelian.
-"payment"| Menangani simulasi proses pembayaran.
-"orderManagement"| Mengelola pesanan dan status transaksi.
-"database"| Menangani penyimpanan dan pembacaan data aplikasi.
+- "main.c"| Titik awal program dan pengatur navigasi menu aplikasi.
+- "models.h"| Menyimpan definisi struktur data yang digunakan bersama oleh berbagai modul.
+- "userManagement"| Mengelola registrasi, login, dan profil pengguna.
+- "adminDashboard"| Menyediakan fitur pengelolaan khusus administrator.
+- "productCatalog"| Mengelola katalog dan inventaris produk.
+- "shoppingCart"| Mengelola keranjang belanja pelanggan.
+- "checkout"| Menangani validasi pesanan dan perhitungan pembelian.
+- "payment"| Menangani simulasi proses pembayaran.
+- "orderManagement"| Mengelola pesanan dan status transaksi.
+- "database"| Menangani penyimpanan dan pembacaan data aplikasi.
