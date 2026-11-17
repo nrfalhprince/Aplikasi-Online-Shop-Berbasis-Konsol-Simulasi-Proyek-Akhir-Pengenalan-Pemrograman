@@ -9,6 +9,34 @@ Anggota kelompok 8:
 - Natanael Marbun (26071104647)
 - Sekar Fadiyah Sakhi (26071103876)
 
+OnlineShop_Kelompok8/
+│
+├── include/                  # Berisi file header (.h) untuk deklarasi struct dan fungsi
+│   ├── models.h
+│   ├── database.h
+│   ├── userManagement.h
+│   ├── productCatalog.h
+│   ├── shoppingCart.h
+│   ├── checkout.h
+│   ├── payment.h
+│   ├── orderManagement.h
+│   └── adminDashboard.h
+│
+├── src/                      # Berisi implementasi kode sumber (.c)
+│   ├── main.c
+│   ├── database.c
+│   ├── userManagement.c
+│   ├── productCatalog.c
+│   ├── shoppingCart.c
+│   ├── checkout.c
+│   ├── payment.c
+│   ├── orderManagement.c
+│   └── adminDashboard.c
+│
+│
+└── README.md                 # Dokumentasi proyek dan daftar anggota kelompok
+
+
 Fitur Aplikasi
 
 1. Manajemen Pengguna (User Management)
