@@ -31,7 +31,6 @@ Fitur Aplikasi
 - Mengubah jumlah produk yang dibeli.
 - Menghapus produk dari keranjang.
 - Menghitung subtotal belanja.
-- Memeriksa ketersediaan stok produk.
 
 4. Sistem Checkout (Checkout System)
 
@@ -66,43 +65,6 @@ Fitur Aplikasi
 - Memantau aktivitas toko.
 
 ---
-
-Struktur Direktori Project
-
-NexaMart/
-│
-├── main.c
-├── models.h
-│
-├── userManagement.c
-├── userManagement.h
-│
-├── adminDashboard.c
-├── adminDashboard.h
-│
-├── productCatalog.c
-├── productCatalog.h
-│
-├── shoppingCart.c
-├── shoppingCart.h
-│
-├── checkout.c
-├── checkout.h
-│
-├── payment.c
-├── payment.h
-│
-├── orderManagement.c
-├── orderManagement.h
-│
-├── database.c
-├── database.h
-│
-└── data/
-    ├── users.dat
-    ├── products.dat
-    └── orders.dat
-
 Penjelasan Modul (fitur)
 
 "main.c"| Titik awal program dan pengatur navigasi menu aplikasi.
