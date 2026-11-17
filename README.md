@@ -2,10 +2,10 @@ Aplikasi Online Shop Berbasis Konsol
 Aplikasi ini merupakan sebuah proyek untuk memenuhi tugas akhir Pengenalan Pemrograman. Aplikasi Online Shop Berbasis konsol ini mensimulasikan bagaimana cara apklikasi online shop yang nyata seperti Shoppe, Tokopedia, Lazada, dll bekerja.
 
 Anggota kelompok 8:
-Fazly Mawla Athaya Arifianto (26071103379)
-Muhammad Nur Falah (26071102353)
-Natanael Marbun (26071104647)
-Sekar Fadiyah Sakhi (26071103876)
+- Fazly Mawla Athaya Arifianto (26071103379)
+- Muhammad Nur Falah (26071102353)
+- Natanael Marbun (26071104647)
+- Sekar Fadiyah Sakhi (26071103876)
 
 Fitur Aplikasi
 
