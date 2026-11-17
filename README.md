@@ -1,4 +1,5 @@
 Aplikasi Online Shop Berbasis Konsol
+------------------------------------
 Aplikasi ini merupakan sebuah proyek untuk memenuhi tugas akhir Pengenalan Pemrograman. Aplikasi Online Shop Berbasis konsol ini mensimulasikan bagaimana cara apklikasi online shop yang nyata seperti Shoppe, Tokopedia, Lazada, dll bekerja.
 ```
 
