@@ -9,7 +9,7 @@ Anggota kelompok 8:
 - Natanael Marbun (26071104647)
 - Sekar Fadiyah Sakhi (26071103876)
 
-OnlineShop_Kelompok8/
+Aplikasi-Online-Shop-Berbasis-Konsol-Simulasi-Proyek-Akhir-Pengenalan-Pemrograman/
 │
 ├── include/                  # Berisi file header (.h) untuk deklarasi struct dan fungsi
 │   ├── models.h
