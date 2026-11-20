@@ -1,63 +1,59 @@
 #include <stdio.h>
 
-float cart(char *items[], int *amountForEach, float priceForEach[], int sizeItems){
+float cart(char *items[], int *jumlahPerItem, float *hargaPerItem, int sizeItems){
     while (1){
         if (sizeItems == 0){
-            printf("Your cart is still empty!\n");
-            return -1;
+            printf("Keranjang kamu masih kosong!\n"); // Jika keranjang kosong maka fungsi otomatis keluar dan mengembalikan nilai "0"
+            return 0;
         }
         float total = 0.0f;
 
-        printf("=============Your cart=============\n");
-        for (int i = 0; i < sizeItems; i++){
-            printf("Item #%d\n", i + 1);
-            printf("Item name: %s\n", items[i]);        
-            printf("Item amount in cart: %d\n", amountForEach[i]);        
-            printf("Item price for each: %.2f\n", priceForEach[i]);
-            printf("Subtotal: %.2f\n", amountForEach[i] * priceForEach[i]);
-            printf("-----------------------------------\n");
-            total += amountForEach[i] * priceForEach[i];
+        printf("=============Keranjang Saya=============\n");
+        for (int i = 0; i < sizeItems; i++){ // Pada for loop ini, akan menampilkan setiap nomor barang, nama barang, jumlahnya di keranjang, harga per item, dan 
+            printf("Barang #%d\n", i + 1);   //subtotal untuk masing masing barang
+            printf("Nama barang: %s\n", items[i]);        
+            printf("Jumlah barang di keranjang: %d\n", jumlahPerItem[i]);        
+            printf("Harga per item: Rp. %.3f\n", hargaPerItem[i]);
+            printf("Subtotal: Rp. %.3f\n", jumlahPerItem[i] * hargaPerItem[i]);
+            printf("----------------------------------------\n");
+            total += jumlahPerItem[i] * hargaPerItem[i];
         }
-        printf("Total: %.2f\n", total);
-        printf("-----------------------------------\n");
+        
+        char pilihan = '\0'; // Menentukan pilihan (hanya ada 2 pilihan, jika memilih yang tidak ada dipilihan, maka akan diulang)
+        while (pilihan != '1' && pilihan != '2'){
+            printf("1. Ubah jumlah barang berdasarkan nomor\n");
+            printf("2. Pergi ke pembayaran\n");
+            printf("Pilihan anda: ");
+            scanf(" %c", &pilihan);
+            printf("----------------------------------------\n");
+        }
 
-        char choice = '\0';
-        printf("1. Change item amount by name\n");
-        printf("2. Go to payment\n");
-        scanf("%c", &choice);
-
-        if (choice == '1'){
+        if (pilihan == '1'){ // Jika pilihan nomor 1, maka: tentukan dulu barang yang mau diubah jumlahnya berdasarkan nomor dari barangnya 
             int num = 0;
 
             while (num > sizeItems || num < 1){
-                printf("Select item by it's number: ");
+                printf("Pilih barang berdasarkan nomor: ");
                 scanf("%d", &num);
+                printf("----------------------------------------\n");
             }
     
-            int newAmount = 0;
-            printf("Select the new amount: ");
-            scanf("%d", &newAmount);
-            amountForEach[num - 1] = newAmount;
+            int jumlahBaru = 0;
+
+            while (jumlahBaru <= 0){
+                printf("Pilih jumlah baru: ");
+                scanf("%d", &jumlahBaru);
+                printf("----------------------------------------\n");
+                jumlahPerItem[num - 1] = jumlahBaru;
+            }
         }
 
-        else if (choice == '2'){
-            if (sizeItems == 0){
-                printf("Your cart is still empty\n");
-                return -1;
-            }
+        else if (pilihan == '2'){
+            printf("Total belanjaan kamu adalah: Rp. %.3f\n", total); // Menampilkan jumlah harga keseluruhan dari masing-masing subtotal
             return total;
         }
+
         else{
-            printf("Your choice is invalid, please to try again!\n");
+            printf("Pilihan mu invalid, mohon untuk mencoba lagi!\n\n"); // Jika pilihan tidak ada di menu, maka akan menampilkan pesan error dan mengulang kembali
         }
     }
-}
-
-int main(){
-    char *item[] = {"Adidas Shoe", "Calculus 1 Book"};
-    int amount[] = {1, 3};
-    float price[] = {229.5, 39.5};
-    cart(item, amount, price, 2);
-
-    return 0;
 }
