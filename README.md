@@ -12,7 +12,6 @@ Anggota kelompok 8:
 Aplikasi-Online-Shop-Berbasis-Konsol-Simulasi-Proyek-Akhir-Pengenalan-Pemrograman/
 │
 ├── include/                  # Berisi file header (.h) untuk deklarasi struct dan fungsi
-│   ├── models.h
 │   ├── userManagement.h
 │   ├── productCatalog.h
 │   ├── shoppingCart.h
