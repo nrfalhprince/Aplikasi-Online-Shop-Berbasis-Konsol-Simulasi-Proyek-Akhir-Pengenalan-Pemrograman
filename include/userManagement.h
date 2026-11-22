@@ -3,10 +3,6 @@
 
 #define MAX_USER 100
 
-extern User users[MAX_USER];
-extern int jumlahUser;
-extern int userAktif;
-
 typedef struct {
     int id;
     char username[30];
@@ -17,10 +13,14 @@ typedef struct {
     int status;
 } User;
 
+extern User users[MAX_USER];
+extern int jumlahUser;
+extern int userAktif;
+
 void inisialisasiUser();
 void registrasiUser();
 int loginUser();
 void logoutUser();
-
+void tampilkanProfil();
 
 #endif

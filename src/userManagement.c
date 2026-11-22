@@ -110,3 +110,19 @@ void logoutUser() {
         userAktif = -1;
     }
 }
+
+// fungsi untuk menampilkan profil akun pengguna
+void tampilkanProfil() {
+    if (userAktif == -1) {
+        printf("Silahkan login terlebih dahulu.\n");
+    } else {
+        printf("\n===== PROFIL PENGGUNA =====");
+
+        printf("ID: %d\n", users[userAktif].id);
+        printf("Nama: %s\n", users[userAktif].nama);
+        printf("Usernam: %s\n", users[userAktif].username);
+        printf("Role: %s\n", users[userAktif].role);
+        printf("Saldo: %0.f\n", users[userAktif].saldo);
+        printf("Status: %d\n", users[userAktif].status);
+    }
+}
