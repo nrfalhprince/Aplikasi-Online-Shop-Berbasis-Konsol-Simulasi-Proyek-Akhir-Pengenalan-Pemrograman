@@ -63,7 +63,6 @@ Fitur Aplikasi
 
 - Memvalidasi keranjang belanja sebelum melakukan pemesanan.
 - Menghitung total pembelian.
-- Menerapkan diskon dan voucher yang tersedia.
 - Menghitung biaya pengiriman.
 - Membuat rincian pesanan.
 
@@ -95,7 +94,6 @@ Fitur Aplikasi
 Penjelasan Modul (fitur)
 
 - "main.c"| Titik awal program dan pengatur navigasi menu aplikasi.
-- "models.h"| Menyimpan definisi struktur data yang digunakan bersama oleh berbagai modul.
 - "userManagement"| Mengelola registrasi, login, dan profil pengguna.
 - "adminDashboard"| Menyediakan fitur pengelolaan khusus administrator.
 - "productCatalog"| Mengelola katalog dan inventaris produk.
