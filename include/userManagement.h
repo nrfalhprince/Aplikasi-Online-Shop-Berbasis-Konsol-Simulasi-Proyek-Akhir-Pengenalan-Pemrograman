@@ -1,5 +1,5 @@
-#ifndef USER_MANAGEMENT.H
-#define USER_MANAGEMENT.H
+#ifndef USER_MANAGEMENT_H
+#define USER_MANAGEMENT_H
 
 #define MAX_USER 100
 
@@ -13,6 +13,10 @@ typedef struct {
     int status;
 } User;
 
+void inisialisasiUser();
+void registrasiUser();
 int loginUser();
+void logoutUser();
+
 
 #endif
