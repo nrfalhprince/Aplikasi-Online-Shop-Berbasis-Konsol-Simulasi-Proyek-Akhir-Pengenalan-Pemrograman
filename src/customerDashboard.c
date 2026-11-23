@@ -2,6 +2,9 @@
 #include <string.h>
 #include "../include/customerDashboard.h"
 #include "../include/userManagement.h"
+#include "../include/shoppingCart.h"
+#include "../include/productCatalog.h"
+#include "../include/orderManagement.h"
 
 // fungsi untuk menampilkan dashboard customer
 void menuCustomer() {
@@ -31,13 +34,13 @@ void menuCustomer() {
 
         switch (pilihan) {
         case 1:
-            
+            tampilSemuaProduk();
             break;
         case 2:
             
             break;
         case 3:
-            
+            tampilRiwayatTransaksi();
             break;
         case 4:
             tampilkanProfil();
