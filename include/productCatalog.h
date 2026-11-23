@@ -20,4 +20,11 @@ void urutkanByHarga();
 void tampilStokTerbanyakTermurah();
 void tampilOngkir();
 
+// DITAMBAHKAN: fungsi penghubung antar modul
+Produk *ambilProdukById(int id);            // NULL jika tidak ada
+Produk *ambilProdukByNama(const char *nama); // NULL jika tidak ada
+void tambahStokProduk(const char *nama, int jumlah); // jumlah negatif = mengurangi stok
+void tambahProdukBaru();                    // dipakai admin
+void ubahDataProduk();                      // dipakai admin (ubah harga / stok)
+
 #endif
