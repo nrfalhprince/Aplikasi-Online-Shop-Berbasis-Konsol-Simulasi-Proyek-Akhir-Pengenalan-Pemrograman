@@ -163,7 +163,10 @@ void tampilSemuaProduk(){
     } do {
         printf("\n1. Cari produk berdasarkan nama\n");
         printf("2. Tampilkan produk per kategori\n");
-        printf("3. Urutkan produk berdasarkan harga\n");
+        printf("3. Tampilkan harga dan stok barang\n");
+        printf("4. Urutkan produk berdasarkan harga\n");
+        printf("5. Urutkan produk stok terbanyak dan termurah\n");
+        printf("6. Tampilkan ongkir barang\n");
 
         printf("\nPilih menu: ");
         scanf("%d", &pilihan);
@@ -176,10 +179,19 @@ void tampilSemuaProduk(){
             filterByKategori();
             break;
         case 3:
+            tampilHargaStok();
+            break;
+        case 4:
             urutkanByHarga();
+            break;
+        case 5:
+            tampilStokTerbanyakTermurah();
+            break;
+        case 6:
+            tampilOngkir();
             break;
         default:
             printf("Pilihan tidak valid!");
         }
-    } while (pilihan != 3);
+    } while (pilihan != 5);
 }
