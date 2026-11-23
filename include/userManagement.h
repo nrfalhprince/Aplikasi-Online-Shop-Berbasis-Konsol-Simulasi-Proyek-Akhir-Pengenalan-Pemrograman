@@ -9,7 +9,7 @@ typedef struct {
     char password[30];
     char nama[30];
     char role[30];
-    float saldo;
+    char alamat[100];
     int status;
 } User;
 
