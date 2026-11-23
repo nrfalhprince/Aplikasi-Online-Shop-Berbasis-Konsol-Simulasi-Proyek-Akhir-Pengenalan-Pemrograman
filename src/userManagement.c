@@ -33,7 +33,7 @@ void registrasiUser() {
         printf("\n===== REGISTRASI USER =====\n");
 
         printf("Nama lengkap: ");
-        scanf("%[^\n]", nama);
+        scanf(" %[^\n]", nama);
 
         printf("Username: ");
         scanf("%29s", username);
@@ -85,7 +85,7 @@ int loginUser() {
         if (strcmp(users[i].username, username) == 0) {
             if (strcmp(users[i].password, password) == 0) {
                 if (users[i].status == 1) {
-                    userAktif = 1;
+                    userAktif = i;
                     printf("\nLogin berhasil!");
                     printf("\nSelamat datang, %s!\n", users[i].nama);
                     return 1;
