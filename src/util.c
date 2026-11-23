@@ -1,5 +1,4 @@
-// Fungsi bantu input (DITAMBAHKAN)
-// Alasan: scanf("%d") akan macet (looping tanpa henti) jika user mengetik huruf.
+// scanf("%d") akan looping tanpa henti jika user mengetik huruf.
 #include <stdio.h>
 #include <stdlib.h>
 #include "../include/util.h"
@@ -9,11 +8,11 @@ static int bacaBaris(char *buf, int ukuran) {
     while (1) {
         char *p;
         if (fgets(buf, ukuran, stdin) == NULL) {
-            exit(0); // input habis (Ctrl+D / Ctrl+Z), keluar dengan rapi
+            exit(0);
         }
         p = buf;
         while (*p == ' ' || *p == '\t') p++;
-        if (*p == '\n' || *p == '\r' || *p == '\0') continue; // lewati baris kosong
+        if (*p == '\n' || *p == '\r' || *p == '\0') continue;
         return (int)(p - buf);
     }
 }
