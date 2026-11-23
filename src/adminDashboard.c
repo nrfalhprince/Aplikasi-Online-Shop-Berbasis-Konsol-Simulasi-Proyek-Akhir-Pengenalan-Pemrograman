@@ -1,9 +1,13 @@
 // Dibuat oleh Fazly Mawla Athaya Arifianto
 // 21 November 2026
+
 #include <stdio.h>
 #include <string.h>
 #include "../include/adminDashboard.h"
 #include "../include/userManagement.h"
+#include "../include/productCatalog.h"
+#include "../include/orderManagement.h"
+#include "../include/util.h"
 
 // fungsi menampilkan daftar pengguna aktif
 void tampilkanDaftarUser() {
@@ -20,9 +24,7 @@ void tampilkanDaftarUser() {
                     users[i].id, 
                     users[i].nama, 
                     users[i].username, 
-                    users[i].status == 1 
-                    ? "Aktif" 
-                    : "Nonaktif");
+                    users[i].status == 1 ? "Aktif" : "Nonaktif");
             }
         }
     }
@@ -72,12 +74,58 @@ void ubahStatusUser() {
     }
 }
 
+// ===================== DITAMBAHKAN =====================
+// submenu kelola produk (menu 3 sebelumnya masih memanggil tampilkanDaftarUser sebagai placeholder)
+static void menuKelolaProduk() {
+    int pilihan;
+    do {
+        printf("\n===== KELOLA PRODUK =====\n");
+        printf("1. Lihat semua produk\n");
+        printf("2. Tambah produk baru\n");
+        printf("3. Ubah harga / stok produk\n");
+        printf("0. Kembali\n");
+        printf("Pilih menu: ");
+        pilihan = bacaInt();
+
+        switch (pilihan) {
+        case 1: tampilSemuaProduk(); break;
+        case 2: tambahProdukBaru(); break;
+        case 3: ubahDataProduk(); break;
+        case 0: break;
+        default: printf("Pilihan tidak valid!\n");
+        }
+    } while (pilihan != 0);
+}
+
+// submenu kelola pesanan (menu 4 sebelumnya placeholder)
+static void menuKelolaPesanan() {
+    int pilihan;
+    do {
+        printf("\n===== KELOLA PESANAN =====\n");
+        printf("1. Lihat semua pesanan\n");
+        printf("2. Ubah status pesanan\n");
+        printf("3. Batalkan pesanan\n");
+        printf("0. Kembali\n");
+        printf("Pilih menu: ");
+        pilihan = bacaInt();
+
+        switch (pilihan) {
+        case 1: tampilSemuaPesanan(); break;
+        case 2: ubahStatusPesanan(); break;
+        case 3: batalkanPesanan(); break;
+        case 0: break;
+        default: printf("Pilihan tidak valid!\n");
+        }
+    } while (pilihan != 0);
+}
+
 void menuAdmin() {
     int pilihan;
 
     // validasi hak admin
     if (userAktif == -1 || strcmp(users[userAktif].role, "admin") != 0) {
-        printf("Akses ditolak! Kamu bukan admin!");
+        printf("Akses ditolak! Kamu bukan admin!\n");
+        return; // menambahkan return, karena tanpa return, kode di bawah mengakses users[-1]
     } do {
         printf("\n====================================\n");
         printf("          DASHBOARD ADMIN\n");
@@ -95,7 +143,7 @@ void menuAdmin() {
         printf("------------------------------------\n");
 
         printf("Pilih menu: ");
-        scanf("%d", &pilihan);
+        pilihan = bacaInt();
 
         switch (pilihan)
         {
@@ -106,16 +154,16 @@ void menuAdmin() {
             ubahStatusUser();
             break;
         case 3:
-            tampilkanDaftarUser();
+            menuKelolaProduk();
             break;
         case 4:
-            tampilkanDaftarUser();
+            menuKelolaPesanan();
             break;
         case 5:
-            tampilkanDaftarUser();
+            tampilLaporanPenjualan();
             break;
         case 6:
-            logoutUser();
+            logoutUser(); //sebelumnya userAktif tidak direset saat logout admin
             break;
         default:
             printf("Pilihan tidak valid!\n");
