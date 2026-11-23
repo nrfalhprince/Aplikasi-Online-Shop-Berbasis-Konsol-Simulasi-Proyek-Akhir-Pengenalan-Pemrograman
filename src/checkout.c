@@ -1,16 +1,37 @@
 #include <stdio.h>
 
-float checkout(char *items[], int *jumlahPerItem, float *hargaPerItem, int sizeItems, float subtotal, float biayaPengiriman){
-    printf("Barang yang kamu beli:\n");
-    printf("------------------------------------------\n");
-    for (int i = 0; i < sizeItems; i++){
-        printf("#%d. %s: %d X Rp. %.3f = Rp. %.3f\n", i + 1, items[i], jumlahPerItem[i], hargaPerItem[i], jumlahPerItem[i] * hargaPerItem[i]);
+float checkout(char *items[], int *jumlahPerItem, float *hargaPerItem, int sizeItems, float subtotal, float biayaPengiriman) {
+
+    float totalPembayaran = subtotal + biayaPengiriman;
+    int i = 0;
+
+    printf("\n========== DETAIL CHECKOUT ==========\n");
+
+    if (sizeItems == 0) {
+        printf("Belum ada barang dalam keranjang.\n");
+        return 0.0f;
     }
-    printf("------------------------------------------\n");
-    printf("Total belanja: Rp. %.3f\n", subtotal);
-    printf("Biaya pengiriman: Rp. %.3f\n", biayaPengiriman);
-    printf("Total pembayaran: Rp. %.3f\n", subtotal + biayaPengiriman);
-    printf("------------------------------------------\n");
-    printf("Estimasi kedatangan barang: 3-5\n");
-    return subtotal + biayaPengiriman;
+
+    printf("\nDaftar pesanan:\n");
+
+    while (i < sizeItems) {
+        printf("\nBarang       : %s\n", items[i]);
+        printf("Jumlah       : %d\n", jumlahPerItem[i]);
+        printf("Harga        : Rp %.0f\n", hargaPerItem[i]);
+        printf("Total barang : Rp %.0f\n",
+               jumlahPerItem[i] * hargaPerItem[i]);
+
+        i++;
+    }
+
+    printf("\n========== TOTAL PEMBAYARAN ==========\n");
+    printf("Harga barang : Rp %.0f\n", subtotal);
+    printf("Ongkos kirim : Rp %.0f\n", biayaPengiriman);
+    printf("--------------------------------------\n");
+    printf("Total akhir  : Rp %.0f\n", totalPembayaran);
+    printf("======================================\n");
+
+    printf("\nPesanan siap dilanjutkan ke pembayaran.\n");
+
+    return totalPembayaran;
 }
