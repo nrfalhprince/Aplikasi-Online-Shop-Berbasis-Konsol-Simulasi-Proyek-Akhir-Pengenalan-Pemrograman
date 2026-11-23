@@ -1,4 +1,6 @@
 #ifndef CUSTOMER_DASHBOARD_H
 #define CUSTOMER_DASHBOARD_H
 
+void menuCustomer();
+
 #endif
