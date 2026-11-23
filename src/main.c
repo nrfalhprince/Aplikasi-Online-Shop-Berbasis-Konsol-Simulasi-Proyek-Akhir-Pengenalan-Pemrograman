@@ -1,33 +1,33 @@
 #include <stdio.h>
 #include <string.h>
-#include "../include/adminDashboard.h"
 #include "../include/userManagement.h"
+#include "../include/adminDashboard.h"
 #include "../include/customerDashboard.h"
+#include "../include/util.h"
 
 int main() {
     int pilihan;
 
-    inisialisasiUser();
+    inisialisasiUser(); // membuat akun admin bawaan
 
     do {
-        printf("\n==========================================\n");
-        printf("   Aplikasi E-Commerce Berbasis Console\n");
-        printf("==========================================\n");    
-
-        printf("1. Register\n");
+        printf("\n====================================\n");
+        printf("     ONLINE SHOP BERBASIS KONSOL\n");
+        printf("====================================\n");
+        printf("1. Registrasi\n");
         printf("2. Login\n");
-        printf("3. About Us\n");
-        printf("4. Exit\n");
-
+        printf("3. Keluar\n");
+        printf("------------------------------------\n");
         printf("Pilih menu: ");
-        scanf("%d", &pilihan);
+        pilihan = bacaInt();
 
         switch (pilihan) {
         case 1:
             registrasiUser();
             break;
         case 2:
-            if (loginUser() == 1) {
+            if (loginUser()) {
+                // arahkan ke dashboard sesuai role
                 if (strcmp(users[userAktif].role, "admin") == 0) {
                     menuAdmin();
                 } else {
@@ -36,15 +36,12 @@ int main() {
             }
             break;
         case 3:
-            printf("\nDibuat oleh kelompok 8 dengan sepenuh hati ❤️\n");
-            break;
-        case 4:
-            printf("\nTerimakasih sudah menggunakan aplikasi ini!\n");
+            printf("Terima kasih telah menggunakan aplikasi ini!\n");
             break;
         default:
-            printf("\nPilihan tidak valid!\n");
+            printf("Pilihan tidak valid!\n");
         }
-    } while (pilihan != 4);
+    } while (pilihan != 3);
 
     return 0;
 }
