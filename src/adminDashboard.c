@@ -13,7 +13,7 @@ void tampilkanDaftarUser() {
     } else {
         printf("%-5s %-20s %-15s %-12s\n", "ID", "NAMA", "USERNAME", "STATUS");
         printf("-----------------------------------------------\n");
-        
+        // menggunakan operator ternary
         for (int i = 0; i < jumlahUser; i++) {
             if (strcmp(users[i].role, "customer") == 0) {
                 printf("%-5d %-20s %-15s %-12s\n", 
@@ -51,11 +51,11 @@ void ubahStatusUser() {
 
                 switch (pilihan) {
                 case 1:
-                    users[i].status == 1;
+                    users[i].status = 1;
                     printf("Akun berhasil diaktifkan!\n");
                     break;
                 case 2:
-                    users[i].status == 0;
+                    users[i].status = 0;
                     printf("Akun berhasil dinonaktifkan!\n");
                     break;
                 default:
@@ -76,7 +76,7 @@ void menuAdmin() {
     int pilihan;
 
     // validasi hak admin
-    if (userAktif == -1 || strcmp(users[userAktif].role, "admin") == 0) {
+    if (userAktif == -1 || strcmp(users[userAktif].role, "admin") != 0) {
         printf("Akses ditolak! Kamu bukan admin!");
     } do {
         printf("\n====================================\n");
