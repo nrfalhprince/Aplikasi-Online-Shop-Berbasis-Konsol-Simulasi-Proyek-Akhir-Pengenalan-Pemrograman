@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "../include/productCatalog.h"
+#include "../include/util.h"
 
 static Produk daftarProduk[MAX_PRODUK] = { // Data awal produk: id, nama, kategori, harga, stok
     {1,  "RAM DDR4 8GB",       "RAM",         350000,  30},
@@ -19,14 +20,26 @@ static Produk daftarProduk[MAX_PRODUK] = { // Data awal produk: id, nama, katego
 
 static int jumlahProduk = 12; // Jumlah produk yang saat ini ada di daftar
 
+void tampilSemuaProduk(){
+    printf("=============Daftar Produk=============\n");
+    for (int i = 0; i < jumlahProduk; i++){ // Menampilkan setiap produk: nomor, nama, kategori, harga, dan stok
+        printf("Produk #%d\n", daftarProduk[i].id);
+        printf("Nama produk: %s\n", daftarProduk[i].nama);
+        printf("Kategori: %s\n", daftarProduk[i].kategori);
+        printf("Harga: Rp. %.0f\n", daftarProduk[i].harga);
+        printf("Stok: %d\n", daftarProduk[i].stok);
+        printf("----------------------------------------\n");
+    }
+}
+
 void cariProdukByNama(){
     char nama[50];
     int ditemukan = 0; // Penanda: 0 = belum ketemu, 1 = sudah ketemu
 
-    printf("\n=============Cari Produk=============\n");
-    printf("\nMasukkan nama produk: ");
+    printf("=============Cari Produk=============\n");
+    printf("Masukkan nama produk: ");
     scanf(" %[^\n]", nama); // Membaca nama lengkap termasuk spasi
-    printf("\n----------------------------------------\n");
+    printf("----------------------------------------\n");
 
     for (int i = 0; i < jumlahProduk; i++){ // Membandingkan nama yang diketik dengan nama setiap produk
         if (strcmp(daftarProduk[i].nama, nama) == 0){
@@ -150,48 +163,114 @@ void tampilOngkir(){
     }
 }
 
-void tampilSemuaProduk(){
-    int pilihan;
-    printf("=============Daftar Produk=============\n");
-    for (int i = 0; i < jumlahProduk; i++){ // Menampilkan setiap produk: nomor, nama, kategori, harga, dan stok
-        printf("Produk #%d\n", daftarProduk[i].id);
-        printf("Nama produk: %s\n", daftarProduk[i].nama);
-        printf("Kategori: %s\n", daftarProduk[i].kategori);
-        printf("Harga: Rp. %.0f\n", daftarProduk[i].harga);
-        printf("Stok: %d\n", daftarProduk[i].stok);
-        printf("----------------------------------------\n");
-    } do {
-        printf("\n1. Cari produk berdasarkan nama\n");
-        printf("2. Tampilkan produk per kategori\n");
-        printf("3. Tampilkan harga dan stok barang\n");
-        printf("4. Urutkan produk berdasarkan harga\n");
-        printf("5. Urutkan produk stok terbanyak dan termurah\n");
-        printf("6. Tampilkan ongkir barang\n");
+// ===================== DITAMBAHKAN =====================
+// Fungsi di bawah ini dibutuhkan karena daftarProduk bersifat static,
+// sehingga modul lain (keranjang, pesanan, admin) tidak bisa mengaksesnya langsung.
 
-        printf("\nPilih menu: ");
-        scanf("%d", &pilihan);
-
-        switch (pilihan) {
-        case 1:
-            cariProdukByNama();
-            break;
-        case 2:
-            filterByKategori();
-            break;
-        case 3:
-            tampilHargaStok();
-            break;
-        case 4:
-            urutkanByHarga();
-            break;
-        case 5:
-            tampilStokTerbanyakTermurah();
-            break;
-        case 6:
-            tampilOngkir();
-            break;
-        default:
-            printf("Pilihan tidak valid!");
+Produk *ambilProdukById(int id){
+    for (int i = 0; i < jumlahProduk; i++){
+        if (daftarProduk[i].id == id){
+            return &daftarProduk[i];
         }
-    } while (pilihan != 5);
+    }
+    return NULL;
+}
+
+Produk *ambilProdukByNama(const char *nama){
+    for (int i = 0; i < jumlahProduk; i++){
+        if (strcmp(daftarProduk[i].nama, nama) == 0){
+            return &daftarProduk[i];
+        }
+    }
+    return NULL;
+}
+
+void tambahStokProduk(const char *nama, int jumlah){
+    Produk *p = ambilProdukByNama(nama);
+    if (p != NULL){
+        p->stok += jumlah;
+        if (p->stok < 0){
+            p->stok = 0;
+        }
+    }
+}
+
+void tambahProdukBaru(){
+    Produk baru;
+    float harga;
+    int stok;
+
+    printf("=============Tambah Produk=============\n");
+    if (jumlahProduk >= MAX_PRODUK){
+        printf("Kapasitas produk penuh!\n");
+        return;
+    }
+
+    printf("Nama produk: ");
+    scanf(" %49[^\n]", baru.nama);
+    if (ambilProdukByNama(baru.nama) != NULL){
+        printf("Produk dengan nama tersebut sudah ada!\n");
+        return;
+    }
+
+    printf("Kategori: ");
+    scanf(" %29[^\n]", baru.kategori);
+
+    printf("Harga: ");
+    harga = bacaFloat();
+    printf("Stok: ");
+    stok = bacaInt();
+
+    if (harga <= 0 || stok < 0){
+        printf("Harga harus lebih dari 0 dan stok tidak boleh negatif!\n");
+        return;
+    }
+
+    baru.id = daftarProduk[jumlahProduk - 1].id + 1;
+    baru.harga = harga;
+    baru.stok = stok;
+    daftarProduk[jumlahProduk] = baru;
+    jumlahProduk++;
+    printf("Produk berhasil ditambahkan dengan ID %d!\n", baru.id);
+}
+
+void ubahDataProduk(){
+    int id, pilihan;
+    Produk *p;
+
+    printf("=============Ubah Data Produk=============\n");
+    printf("Masukkan ID produk: ");
+    id = bacaInt();
+    p = ambilProdukById(id);
+
+    if (p == NULL){
+        printf("Produk tidak ditemukan!\n");
+        return;
+    }
+
+    printf("Produk: %s | Harga: Rp. %.0f | Stok: %d\n", p->nama, p->harga, p->stok);
+    printf("1. Ubah harga\n2. Ubah stok\nPilih: ");
+    pilihan = bacaInt();
+
+    if (pilihan == 1){
+        printf("Harga baru: ");
+        float harga = bacaFloat();
+        if (harga <= 0){
+            printf("Harga tidak valid!\n");
+            return;
+        }
+        p->harga = harga;
+        printf("Harga berhasil diubah!\n");
+    } else if (pilihan == 2){
+        printf("Stok baru: ");
+        int stok = bacaInt();
+        if (stok < 0){
+            printf("Stok tidak valid!\n");
+            return;
+        }
+        p->stok = stok;
+        printf("Stok berhasil diubah!\n");
+    } else {
+        printf("Pilihan tidak valid!\n");
+    }
 }
