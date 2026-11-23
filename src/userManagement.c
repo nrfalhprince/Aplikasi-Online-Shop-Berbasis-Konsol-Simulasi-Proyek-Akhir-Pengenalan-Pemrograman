@@ -24,11 +24,12 @@ void inisialisasiUser() {
 // fungsi buat registrasi akun user
 void registrasiUser() {
     char username[30], nama[30], password[30], alamat[100];
-    int cekUsername;
+    int cekUsername = 0;
 
     // cek jumlah akun user yang terdaftar
     if (jumlahUser >= MAX_USER) {
         printf("Jumlah user melebihi kapasitas!");
+        return;
     } else {
         printf("\n===== REGISTRASI USER =====\n");
 
