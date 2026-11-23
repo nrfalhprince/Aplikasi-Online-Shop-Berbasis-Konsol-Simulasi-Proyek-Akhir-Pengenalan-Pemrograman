@@ -115,7 +115,7 @@ void menuAdmin() {
             tampilkanDaftarUser();
             break;
         case 6:
-            printf("Keluar dari Dashboard Admin.\n");
+            logoutUser();
             break;
         default:
             printf("Pilihan tidak valid!\n");
