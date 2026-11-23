@@ -15,7 +15,7 @@ void inisialisasiUser() {
     strcpy(users[0].password, "admin123");
     strcpy(users[0].nama, "Admin");
     strcpy(users[0].role, "admin");
-    users[0].saldo = 0;
+    strcpy(users[0].alamat, "Jl. HR Subrantas NO.123");
     users[0].status = 1;
 
     jumlahUser = 1;
@@ -23,7 +23,7 @@ void inisialisasiUser() {
 
 // fungsi buat registrasi akun user
 void registrasiUser() {
-    char username[30], nama[30], password[30];
+    char username[30], nama[30], password[30], alamat[100];
     int cekUsername;
 
     // cek jumlah akun user yang terdaftar
@@ -33,10 +33,13 @@ void registrasiUser() {
         printf("\n===== REGISTRASI USER =====\n");
 
         printf("Nama lengkap: ");
-        scanf(" %[^\n]", nama);
+        scanf(" %29[^\n]", nama);
 
         printf("Username: ");
         scanf("%29s", username);
+
+        printf("Alamat: ");
+        scanf(" %99[^\n]", alamat);
     }
 
     // cek jika ada username yang sama
@@ -60,9 +63,9 @@ void registrasiUser() {
             users[jumlahUser].id = jumlahUser + 1;
             strcpy(users[jumlahUser].nama, nama);
             strcpy(users[jumlahUser].username, username);
+            strcpy(users[jumlahUser].alamat, alamat);
             strcpy(users[jumlahUser].password, password);
             strcpy(users[jumlahUser].role, "customer");
-            users[jumlahUser].saldo = 0;
             users[jumlahUser].status = 1;
 
             jumlahUser++;
@@ -121,8 +124,8 @@ void tampilkanProfil() {
         printf("ID: %d\n", users[userAktif].id);
         printf("Nama: %s\n", users[userAktif].nama);
         printf("Usernam: %s\n", users[userAktif].username);
+        printf("Alamat: %s\n", users[userAktif].alamat);
         printf("Role: %s\n", users[userAktif].role);
-        printf("Saldo: %0.f\n", users[userAktif].saldo);
         printf("Status: %d\n", users[userAktif].status);
     }
 }
