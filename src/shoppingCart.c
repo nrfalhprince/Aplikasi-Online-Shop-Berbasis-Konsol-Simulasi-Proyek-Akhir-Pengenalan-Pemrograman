@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include "../include/shoppingCart.h"
+#include "../include/productCatalog.h"
+#include "../include/util.h"
 
 float cart(char *items[], int *jumlahPerItem, float *hargaPerItem, int *sizeItems){
     while (1){
@@ -129,3 +132,4 @@ int tambahKeKeranjang(char *items[], int *jumlahPerItem, float *hargaPerItem, in
     printf("%s berhasil ditambahkan ke keranjang.\n", p->nama);
     return 1;
 }
+
