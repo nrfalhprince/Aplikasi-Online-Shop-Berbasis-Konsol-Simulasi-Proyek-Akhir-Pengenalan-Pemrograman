@@ -70,7 +70,7 @@ void registrasiUser() {
             users[jumlahUser].status = 1;
 
             jumlahUser++;
-            printf("\nRegistrasi berhasil!\n");
+            printf("\nRegistrasi berhasil! Silakan login.\n");
         }
     }
 }

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "productCatalog.h"
+#include "../include/productCatalog.h"
 
 static Produk daftarProduk[MAX_PRODUK] = { // Data awal produk: id, nama, kategori, harga, stok
     {1,  "RAM DDR4 8GB",       "RAM",         350000,  30},
@@ -19,26 +19,14 @@ static Produk daftarProduk[MAX_PRODUK] = { // Data awal produk: id, nama, katego
 
 static int jumlahProduk = 12; // Jumlah produk yang saat ini ada di daftar
 
-void tampilSemuaProduk(){
-    printf("=============Daftar Produk=============\n");
-    for (int i = 0; i < jumlahProduk; i++){ // Menampilkan setiap produk: nomor, nama, kategori, harga, dan stok
-        printf("Produk #%d\n", daftarProduk[i].id);
-        printf("Nama produk: %s\n", daftarProduk[i].nama);
-        printf("Kategori: %s\n", daftarProduk[i].kategori);
-        printf("Harga: Rp. %.0f\n", daftarProduk[i].harga);
-        printf("Stok: %d\n", daftarProduk[i].stok);
-        printf("----------------------------------------\n");
-    }
-}
-
 void cariProdukByNama(){
     char nama[50];
     int ditemukan = 0; // Penanda: 0 = belum ketemu, 1 = sudah ketemu
 
-    printf("=============Cari Produk=============\n");
-    printf("Masukkan nama produk: ");
+    printf("\n=============Cari Produk=============\n");
+    printf("\nMasukkan nama produk: ");
     scanf(" %[^\n]", nama); // Membaca nama lengkap termasuk spasi
-    printf("----------------------------------------\n");
+    printf("\n----------------------------------------\n");
 
     for (int i = 0; i < jumlahProduk; i++){ // Membandingkan nama yang diketik dengan nama setiap produk
         if (strcmp(daftarProduk[i].nama, nama) == 0){
@@ -160,4 +148,38 @@ void tampilOngkir(){
         printf("Total: Rp. %.0f\n", daftarProduk[i].harga + ongkir);
         printf("----------------------------------------\n");
     }
+}
+
+void tampilSemuaProduk(){
+    int pilihan;
+    printf("=============Daftar Produk=============\n");
+    for (int i = 0; i < jumlahProduk; i++){ // Menampilkan setiap produk: nomor, nama, kategori, harga, dan stok
+        printf("Produk #%d\n", daftarProduk[i].id);
+        printf("Nama produk: %s\n", daftarProduk[i].nama);
+        printf("Kategori: %s\n", daftarProduk[i].kategori);
+        printf("Harga: Rp. %.0f\n", daftarProduk[i].harga);
+        printf("Stok: %d\n", daftarProduk[i].stok);
+        printf("----------------------------------------\n");
+    } do {
+        printf("\n1. Cari produk berdasarkan nama\n");
+        printf("2. Tampilkan produk per kategori\n");
+        printf("3. Urutkan produk berdasarkan harga\n");
+
+        printf("\nPilih menu: ");
+        scanf("%d", &pilihan);
+
+        switch (pilihan) {
+        case 1:
+            cariProdukByNama();
+            break;
+        case 2:
+            filterByKategori();
+            break;
+        case 3:
+            urutkanByHarga();
+            break;
+        default:
+            printf("Pilihan tidak valid!");
+        }
+    } while (pilihan != 3);
 }
