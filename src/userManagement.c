@@ -120,7 +120,7 @@ void tampilkanProfil() {
     if (userAktif == -1) {
         printf("Silahkan login terlebih dahulu.\n");
     } else {
-        printf("\n===== PROFIL PENGGUNA =====");
+        printf("\n===== PROFIL PENGGUNA =====\n");
 
         printf("ID: %d\n", users[userAktif].id);
         printf("Nama: %s\n", users[userAktif].nama);
